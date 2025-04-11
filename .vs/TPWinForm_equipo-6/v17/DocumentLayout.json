@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Escritorio\\Program\\FACULTAD\\TPWinForm_equipo-6\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E7F7120-8BE7-429B-8F0C-059349AEB868}|TPWinForm_equipo-6\\TPWinForm_equipo-6.csproj|d:\\escritorio\\program\\facultad\\tpwinform_equipo-6\\tpwinform_equipo-6\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E7F7120-8BE7-429B-8F0C-059349AEB868}|TPWinForm_equipo-6\\TPWinForm_equipo-6.csproj|solutionrelative:tpwinform_equipo-6\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E7F7120-8BE7-429B-8F0C-059349AEB868}|TPWinForm_equipo-6\\TPWinForm_equipo-6.csproj|d:\\escritorio\\program\\facultad\\tpwinform_equipo-6\\tpwinform_equipo-6\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8E7F7120-8BE7-429B-8F0C-059349AEB868}|TPWinForm_equipo-6\\TPWinForm_equipo-6.csproj|solutionrelative:tpwinform_equipo-6\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -14,19 +18,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Escritorio\\Program\\FACULTAD\\TPWinForm_equipo-6\\TPWinForm_equipo-6\\Form1.cs",
               "RelativeDocumentMoniker": "TPWinForm_equipo-6\\Form1.cs",
               "ToolTip": "D:\\Escritorio\\Program\\FACULTAD\\TPWinForm_equipo-6\\TPWinForm_equipo-6\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "TPWinForm_equipo-6\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T19:06:01.797Z",
+              "WhenOpened": "2025-04-11T17:58:10.789Z",
+              "IsPinned": true,
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Escritorio\\Program\\FACULTAD\\TPWinForm_equipo-6\\TPWinForm_equipo-6\\Form1.cs",
+              "RelativeDocumentMoniker": "TPWinForm_equipo-6\\Form1.cs",
+              "ToolTip": "D:\\Escritorio\\Program\\FACULTAD\\TPWinForm_equipo-6\\TPWinForm_equipo-6\\Form1.cs",
+              "RelativeToolTip": "TPWinForm_equipo-6\\Form1.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAowJIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T19:54:08.798Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             }
           ]
         }

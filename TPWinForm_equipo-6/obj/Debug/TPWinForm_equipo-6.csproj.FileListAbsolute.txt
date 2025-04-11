@@ -1,0 +1,10 @@
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\bin\Debug\TPWinForm_equipo-6.exe.config
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\bin\Debug\TPWinForm_equipo-6.exe
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\bin\Debug\TPWinForm_equipo-6.pdb
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo-6.csproj.AssemblyReference.cache
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo_6.Form1.resources
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo_6.Properties.Resources.resources
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo-6.csproj.GenerateResource.cache
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo-6.csproj.CoreCompileInputs.cache
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo-6.exe
+D:\Escritorio\Program\FACULTAD\TPWinForm_equipo-6\TPWinForm_equipo-6\obj\Debug\TPWinForm_equipo-6.pdb
