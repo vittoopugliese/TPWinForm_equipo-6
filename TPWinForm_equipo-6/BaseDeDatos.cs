@@ -42,7 +42,6 @@ namespace TPWinForm_equipo_6
             try
             {
                 if (conexion.State != ConnectionState.Open) conexion.Open();
-
                 lector = comando.ExecuteReader();
             }
             catch (Exception ex)
@@ -55,18 +54,13 @@ namespace TPWinForm_equipo_6
         {
             try
             {
-                if (conexion.State != ConnectionState.Open) conexion.Open();
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
+                if (conexion.State != ConnectionState.Open) {
+                    conexion.Open();
+                    comando.ExecuteNonQuery();
+                }
+            } catch (Exception ex) {
                 throw new Exception("Error al ejecutar acción: " + ex.Message);
             }
-        }
-
-        public void setearParametro(string nombre, object valor)
-        {
-            comando.Parameters.AddWithValue(nombre, valor ?? DBNull.Value);
         }
 
         public void cerrarConexion()

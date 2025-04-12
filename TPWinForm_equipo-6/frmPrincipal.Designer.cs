@@ -30,23 +30,11 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonMarcas = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnImagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonExportar = new System.Windows.Forms.Button();
             this.buttonDetalleArt = new System.Windows.Forms.Button();
             this.buttonEliminarArt = new System.Windows.Forms.Button();
@@ -124,6 +112,7 @@
             this.panelContenido.Controls.Add(this.groupBoxFiltros);
             this.panelContenido.Controls.Add(this.labelTituloArticulos);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenido.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelContenido.Location = new System.Drawing.Point(189, 0);
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(1018, 660);
@@ -136,99 +125,38 @@
             this.dataGridViewArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewArticulos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridViewArticulos.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridViewArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCodigo,
-            this.ColumnNombre,
-            this.ColumnMarca,
-            this.ColumnCategoria,
-            this.ColumnDescripcion,
-            this.ColumPrecio,
-            this.ColumnImagen});
-            this.dataGridViewArticulos.Location = new System.Drawing.Point(12, 171);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewArticulos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewArticulos.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(9, 171);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
             this.dataGridViewArticulos.ReadOnly = true;
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(979, 477);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 477);
             this.dataGridViewArticulos.TabIndex = 7;
             this.dataGridViewArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // ColumnCodigo
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnCodigo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnCodigo.HeaderText = "Codigo";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Width = 154;
-            // 
-            // ColumnNombre
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnNombre.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            this.ColumnNombre.Width = 154;
-            // 
-            // ColumnMarca
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnMarca.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnMarca.HeaderText = "Marca";
-            this.ColumnMarca.Name = "ColumnMarca";
-            this.ColumnMarca.ReadOnly = true;
-            this.ColumnMarca.Width = 154;
-            // 
-            // ColumnCategoria
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnCategoria.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnCategoria.HeaderText = "Categoria";
-            this.ColumnCategoria.Name = "ColumnCategoria";
-            this.ColumnCategoria.ReadOnly = true;
-            this.ColumnCategoria.Width = 154;
-            // 
-            // ColumnDescripcion
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnDescripcion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnDescripcion.HeaderText = "Descripcion";
-            this.ColumnDescripcion.Name = "ColumnDescripcion";
-            this.ColumnDescripcion.ReadOnly = true;
-            this.ColumnDescripcion.Width = 190;
-            // 
-            // ColumPrecio
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumPrecio.HeaderText = "Precio";
-            this.ColumPrecio.Name = "ColumPrecio";
-            this.ColumPrecio.ReadOnly = true;
-            this.ColumPrecio.Width = 80;
-            // 
-            // ColumnImagen
-            // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnImagen.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColumnImagen.HeaderText = "Imagen";
-            this.ColumnImagen.Name = "ColumnImagen";
-            this.ColumnImagen.ReadOnly = true;
-            this.ColumnImagen.Width = 60;
             // 
             // buttonExportar
             // 
             this.buttonExportar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonExportar.Location = new System.Drawing.Point(897, 126);
+            this.buttonExportar.Location = new System.Drawing.Point(894, 126);
             this.buttonExportar.Name = "buttonExportar";
             this.buttonExportar.Size = new System.Drawing.Size(109, 39);
             this.buttonExportar.TabIndex = 6;
@@ -462,13 +390,6 @@
         private System.Windows.Forms.Button buttonEditarArt;
         private System.Windows.Forms.Button buttonNuevoArt;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImagen;
     }
 }
 

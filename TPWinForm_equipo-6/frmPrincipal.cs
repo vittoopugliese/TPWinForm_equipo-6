@@ -22,48 +22,28 @@ namespace TPWinForm_equipo_6
 
         private void CargarArticulos()
         {
-            // creo lista de categorias para luego remplazarlas en el articulo por su nombre
-            bd.setearConsulta("SELECT * FROM CATEGORIAS");
-            bd.ejecutarLectura();
-            var listaCategorias = new Dictionary<int, string>();
-            while (bd.Lector.Read()) listaCategorias.Add(Convert.ToInt32(bd.Lector["Id"]), bd.Lector["Descripcion"].ToString());
-            bd.cerrarConexion();
-
-            // creo lista de marcas para luego remplazarlas por su nombre en articulo
-            bd.setearConsulta("SELECT * FROM MARCAS");
-            bd.ejecutarLectura();
-            var listaMarcas = new Dictionary<int, string>();
-            while (bd.Lector.Read()) listaMarcas.Add(Convert.ToInt32(bd.Lector["Id"]), bd.Lector["Descripcion"].ToString());
-            bd.cerrarConexion();
-
-            // traigo todos los articulos para mapear todas las propiedades anteriores y mostrar el resultado en tabla
-            bd.setearConsulta("SELECT * FROM ARTICULOS");
-            bd.ejecutarLectura();
-
-            // limpiar tabla de resultados previos
-            dataGridViewArticulos.Rows.Clear();
-
-            while (bd.Lector.Read())
+            try
             {
-                int idMarca = Convert.ToInt32(bd.Lector["IdMarca"]);
-                int idCategoria = Convert.ToInt32(bd.Lector["IdCategoria"]);
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                List<Articulo> listaArticulos = negocio.Listar();
 
-                string nombreMarca = listaMarcas.ContainsKey(idMarca) ? listaMarcas[idMarca] : "-- Sin Marca --";
-                string nombreCategoria = listaCategorias.ContainsKey(idCategoria) ? listaCategorias[idCategoria] : "-- Sin Categoria --";
+                dataGridViewArticulos.DataSource = listaArticulos;
 
-                // los datos SI O SI se ponen en la grid por como estan declaradas las tablas, mismo orden
-                // bd.Lector[key] lo que hace es agarrar el ultimo resultado traido de la bbdd y segund la key pone ese value
-                dataGridViewArticulos.Rows.Add(
-                    bd.Lector["Codigo"].ToString(),
-                    bd.Lector["Nombre"].ToString(),
-                    nombreMarca, nombreCategoria,
-                    bd.Lector["Descripcion"].ToString(),
-                    bd.Lector["Precio"].ToString(),
-                    bd.Lector["Id"].ToString()
-                );
+                dataGridViewArticulos.Columns["Id"].Visible = false;
+                dataGridViewArticulos.Columns["IdMarca"].Visible = false;
+                dataGridViewArticulos.Columns["IdCategoria"].Visible = false;
+
+                dataGridViewArticulos.Columns["Codigo"].HeaderText = "Código";
+                dataGridViewArticulos.Columns["Descripcion"].HeaderText = "Descripción";
+                dataGridViewArticulos.Columns["Marca"].HeaderText = "Marca";
+                dataGridViewArticulos.Columns["Categoria"].HeaderText = "Categoría";
+                dataGridViewArticulos.Columns["Precio"].HeaderText = "Precio";
+
             }
-
-            bd.cerrarConexion();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los artículos: " + ex.Message);
+            }
         }
 
         private void buttonCategorias_Click(object sender, EventArgs e)
