@@ -12,13 +12,8 @@ namespace TPWinForm_equipo_6
 {
     public partial class frmPrincipal : Form
     {
-        // paneles de cada boton
-        private Panel panelArticulos;
-        private Panel panelCategorias;
-        private Panel panelMarcas;
-        private Panel panelConfiguracion;
-
         private BaseDeDatos bd = new BaseDeDatos();
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -71,14 +66,10 @@ namespace TPWinForm_equipo_6
             bd.cerrarConexion();
         }
 
-        private void Articulos_Click(object sender, EventArgs e)
-        {
-        }
-
         private void buttonCategorias_Click(object sender, EventArgs e)
         {
             frmCategorias categorias = new frmCategorias();
-            categorias.ShowDialog(); // O bien incorporarlo al panel de contenido
+            categorias.ShowDialog();
         }
 
         private void buttonMarcas_Click(object sender, EventArgs e)
