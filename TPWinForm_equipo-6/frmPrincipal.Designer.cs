@@ -1,6 +1,6 @@
 ﻿namespace TPWinForm_equipo_6
 {
-    partial class Form1
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -36,12 +36,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.buttonConfiguracion = new System.Windows.Forms.Button();
             this.buttonMarcas = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
-            this.buttonArticulos = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnImagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonExportar = new System.Windows.Forms.Button();
             this.buttonDetalleArt = new System.Windows.Forms.Button();
             this.buttonEliminarArt = new System.Windows.Forms.Button();
@@ -60,13 +65,6 @@
             this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
             this.textBoxFiltroCodigo = new System.Windows.Forms.TextBox();
             this.labelTituloArticulos = new System.Windows.Forms.Label();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnImagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
@@ -76,31 +74,14 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
-            this.panelMenu.Controls.Add(this.buttonConfiguracion);
             this.panelMenu.Controls.Add(this.buttonMarcas);
             this.panelMenu.Controls.Add(this.buttonCategorias);
-            this.panelMenu.Controls.Add(this.buttonArticulos);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(189, 660);
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // buttonConfiguracion
-            // 
-            this.buttonConfiguracion.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonConfiguracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConfiguracion.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.buttonConfiguracion.Location = new System.Drawing.Point(0, 495);
-            this.buttonConfiguracion.Name = "buttonConfiguracion";
-            this.buttonConfiguracion.Size = new System.Drawing.Size(189, 165);
-            this.buttonConfiguracion.TabIndex = 4;
-            this.buttonConfiguracion.Text = "Configuración";
-            this.buttonConfiguracion.UseVisualStyleBackColor = false;
-            this.buttonConfiguracion.Click += new System.EventHandler(this.buttonConfiguracion_Click);
             // 
             // buttonMarcas
             // 
@@ -111,7 +92,7 @@
             this.buttonMarcas.ForeColor = System.Drawing.SystemColors.Highlight;
             this.buttonMarcas.Location = new System.Drawing.Point(0, 330);
             this.buttonMarcas.Name = "buttonMarcas";
-            this.buttonMarcas.Size = new System.Drawing.Size(189, 165);
+            this.buttonMarcas.Size = new System.Drawing.Size(189, 330);
             this.buttonMarcas.TabIndex = 3;
             this.buttonMarcas.Text = "Marcas";
             this.buttonMarcas.UseVisualStyleBackColor = false;
@@ -124,28 +105,13 @@
             this.buttonCategorias.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCategorias.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.buttonCategorias.Location = new System.Drawing.Point(0, 165);
+            this.buttonCategorias.Location = new System.Drawing.Point(0, 0);
             this.buttonCategorias.Name = "buttonCategorias";
-            this.buttonCategorias.Size = new System.Drawing.Size(189, 165);
+            this.buttonCategorias.Size = new System.Drawing.Size(189, 330);
             this.buttonCategorias.TabIndex = 2;
             this.buttonCategorias.Text = "Categorias";
             this.buttonCategorias.UseVisualStyleBackColor = false;
             this.buttonCategorias.Click += new System.EventHandler(this.buttonCategorias_Click);
-            // 
-            // buttonArticulos
-            // 
-            this.buttonArticulos.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonArticulos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArticulos.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.buttonArticulos.Location = new System.Drawing.Point(0, 0);
-            this.buttonArticulos.Name = "buttonArticulos";
-            this.buttonArticulos.Size = new System.Drawing.Size(189, 165);
-            this.buttonArticulos.TabIndex = 1;
-            this.buttonArticulos.Text = "Articulos";
-            this.buttonArticulos.UseVisualStyleBackColor = false;
-            this.buttonArticulos.Click += new System.EventHandler(this.Articulos_Click);
             // 
             // panelContenido
             // 
@@ -185,9 +151,79 @@
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
             this.dataGridViewArticulos.ReadOnly = true;
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 477);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(979, 477);
             this.dataGridViewArticulos.TabIndex = 7;
             this.dataGridViewArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ColumnCodigo
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnCodigo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            this.ColumnCodigo.Width = 154;
+            // 
+            // ColumnNombre
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnNombre.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            this.ColumnNombre.Width = 154;
+            // 
+            // ColumnMarca
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnMarca.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnMarca.HeaderText = "Marca";
+            this.ColumnMarca.Name = "ColumnMarca";
+            this.ColumnMarca.ReadOnly = true;
+            this.ColumnMarca.Width = 154;
+            // 
+            // ColumnCategoria
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnCategoria.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnCategoria.HeaderText = "Categoria";
+            this.ColumnCategoria.Name = "ColumnCategoria";
+            this.ColumnCategoria.ReadOnly = true;
+            this.ColumnCategoria.Width = 154;
+            // 
+            // ColumnDescripcion
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnDescripcion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnDescripcion.HeaderText = "Descripcion";
+            this.ColumnDescripcion.Name = "ColumnDescripcion";
+            this.ColumnDescripcion.ReadOnly = true;
+            this.ColumnDescripcion.Width = 190;
+            // 
+            // ColumPrecio
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumPrecio.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumPrecio.HeaderText = "Precio";
+            this.ColumPrecio.Name = "ColumPrecio";
+            this.ColumPrecio.ReadOnly = true;
+            this.ColumPrecio.Width = 80;
+            // 
+            // ColumnImagen
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ColumnImagen.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnImagen.HeaderText = "Imagen";
+            this.ColumnImagen.Name = "ColumnImagen";
+            this.ColumnImagen.ReadOnly = true;
+            this.ColumnImagen.Width = 60;
             // 
             // buttonExportar
             // 
@@ -379,77 +415,7 @@
             this.labelTituloArticulos.Text = "Gestión De Artículos";
             this.labelTituloArticulos.Click += new System.EventHandler(this.labelTituloArticulos_Click);
             // 
-            // ColumnCodigo
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnCodigo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnCodigo.HeaderText = "Codigo";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Width = 154;
-            // 
-            // ColumnNombre
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnNombre.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            this.ColumnNombre.Width = 154;
-            // 
-            // ColumnMarca
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnMarca.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnMarca.HeaderText = "Marca";
-            this.ColumnMarca.Name = "ColumnMarca";
-            this.ColumnMarca.ReadOnly = true;
-            this.ColumnMarca.Width = 154;
-            // 
-            // ColumnCategoria
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnCategoria.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnCategoria.HeaderText = "Categoria";
-            this.ColumnCategoria.Name = "ColumnCategoria";
-            this.ColumnCategoria.ReadOnly = true;
-            this.ColumnCategoria.Width = 154;
-            // 
-            // ColumnDescripcion
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnDescripcion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnDescripcion.HeaderText = "Descripcion";
-            this.ColumnDescripcion.Name = "ColumnDescripcion";
-            this.ColumnDescripcion.ReadOnly = true;
-            this.ColumnDescripcion.Width = 190;
-            // 
-            // ColumPrecio
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumPrecio.HeaderText = "Precio";
-            this.ColumPrecio.Name = "ColumPrecio";
-            this.ColumPrecio.ReadOnly = true;
-            this.ColumPrecio.Width = 80;
-            // 
-            // ColumnImagen
-            // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ColumnImagen.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColumnImagen.HeaderText = "Imagen";
-            this.ColumnImagen.Name = "ColumnImagen";
-            this.ColumnImagen.ReadOnly = true;
-            this.ColumnImagen.Width = 60;
-            // 
-            // Form1
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -458,7 +424,7 @@
             this.Controls.Add(this.panelContenido);
             this.Controls.Add(this.panelMenu);
             this.ForeColor = System.Drawing.SystemColors.Info;
-            this.Name = "Form1";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Catálogo - Sistema de Administración";
             this.panelMenu.ResumeLayout(false);
@@ -474,8 +440,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button buttonArticulos;
-        private System.Windows.Forms.Button buttonConfiguracion;
         private System.Windows.Forms.Button buttonMarcas;
         private System.Windows.Forms.Button buttonCategorias;
         private System.Windows.Forms.Panel panelContenido;
