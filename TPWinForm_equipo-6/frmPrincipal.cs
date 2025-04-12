@@ -24,21 +24,14 @@ namespace TPWinForm_equipo_6
         {
             try
             {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                List<Articulo> listaArticulos = negocio.Listar();
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                List<Articulo> listaArticulos = articuloNegocio.Listar();
 
                 dataGridViewArticulos.DataSource = listaArticulos;
 
                 dataGridViewArticulos.Columns["Id"].Visible = false;
                 dataGridViewArticulos.Columns["IdMarca"].Visible = false;
                 dataGridViewArticulos.Columns["IdCategoria"].Visible = false;
-
-                dataGridViewArticulos.Columns["Codigo"].HeaderText = "Código";
-                dataGridViewArticulos.Columns["Descripcion"].HeaderText = "Descripción";
-                dataGridViewArticulos.Columns["Marca"].HeaderText = "Marca";
-                dataGridViewArticulos.Columns["Categoria"].HeaderText = "Categoría";
-                dataGridViewArticulos.Columns["Precio"].HeaderText = "Precio";
-
             }
             catch (Exception ex)
             {

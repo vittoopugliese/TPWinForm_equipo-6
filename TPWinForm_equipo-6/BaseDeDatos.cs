@@ -19,7 +19,7 @@ namespace TPWinForm_equipo_6
         {
             try
             {
-                string connectionString = "Data Source=DESKTOP-SMALGP3;Initial Catalog=CATALOGO_P3_DB;Integrated Security=True;";
+                string connectionString = "Server=DESKTOP-SMALGP3;Initial Catalog=CATALOGO_P3_DB;Integrated Security=True;";
                 conexion = new SqlConnection(connectionString);
                 comando = new SqlCommand();
                 comando.Connection = conexion;

@@ -26,7 +26,6 @@ namespace TPWinForm_equipo_6
                     Categoria categoria = new Categoria();
                     categoria.Id = Convert.ToInt32(bd.Lector["Id"]);
                     categoria.Descripcion = bd.Lector["Descripcion"].ToString();
-
                     listaCategorias.Add(categoria);
                 }
 

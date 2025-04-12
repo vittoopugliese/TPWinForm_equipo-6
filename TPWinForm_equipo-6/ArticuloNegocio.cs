@@ -28,15 +28,8 @@ namespace TPWinForm_equipo_6
                 Dictionary<int, Marca> diccionarioMarcas = new Dictionary<int, Marca>();
                 Dictionary<int, Categoria> diccionarioCategorias = new Dictionary<int, Categoria>();
 
-                foreach (Marca marca in listaMarcas)
-                {
-                    diccionarioMarcas.Add(marca.Id, marca);
-                }
-
-                foreach (Categoria categoria in listaCategorias)
-                {
-                    diccionarioCategorias.Add(categoria.Id, categoria);
-                }
+                foreach (Marca marca in listaMarcas) diccionarioMarcas.Add(marca.Id, marca);
+                foreach (Categoria categoria in listaCategorias) diccionarioCategorias.Add(categoria.Id, categoria);
 
                 bd.setearConsulta("SELECT * FROM ARTICULOS");
                 bd.ejecutarLectura();
