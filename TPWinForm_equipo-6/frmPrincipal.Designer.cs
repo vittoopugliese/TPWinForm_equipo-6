@@ -69,7 +69,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(189, 660);
             this.panelMenu.TabIndex = 0;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // buttonMarcas
             // 
@@ -151,7 +150,6 @@
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 477);
             this.dataGridViewArticulos.TabIndex = 7;
-            this.dataGridViewArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // buttonExportar
             // 
@@ -224,7 +222,6 @@
             this.groupBoxFiltros.TabIndex = 1;
             this.groupBoxFiltros.TabStop = false;
             this.groupBoxFiltros.Text = "Filtros";
-            this.groupBoxFiltros.Enter += new System.EventHandler(this.groupBoxFiltros_Enter);
             // 
             // labelFiltroDescripcion
             // 
@@ -290,7 +287,6 @@
             this.buttonBuscarArticulos.TabIndex = 4;
             this.buttonBuscarArticulos.Text = "Buscar!";
             this.buttonBuscarArticulos.UseVisualStyleBackColor = true;
-            this.buttonBuscarArticulos.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBoxFiltroDescripcion
             // 
@@ -298,7 +294,6 @@
             this.textBoxFiltroDescripcion.Name = "textBoxFiltroDescripcion";
             this.textBoxFiltroDescripcion.Size = new System.Drawing.Size(774, 20);
             this.textBoxFiltroDescripcion.TabIndex = 3;
-            this.textBoxFiltroDescripcion.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBoxFiltroCategoria
             // 
@@ -306,7 +301,6 @@
             this.textBoxFiltroCategoria.Name = "textBoxFiltroCategoria";
             this.textBoxFiltroCategoria.Size = new System.Drawing.Size(174, 20);
             this.textBoxFiltroCategoria.TabIndex = 2;
-            this.textBoxFiltroCategoria.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBoxFiltroMarca
             // 
@@ -314,7 +308,6 @@
             this.textBoxFiltroMarca.Name = "textBoxFiltroMarca";
             this.textBoxFiltroMarca.Size = new System.Drawing.Size(174, 20);
             this.textBoxFiltroMarca.TabIndex = 1;
-            this.textBoxFiltroMarca.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBoxFiltroNombre
             // 
@@ -322,7 +315,6 @@
             this.textBoxFiltroNombre.Name = "textBoxFiltroNombre";
             this.textBoxFiltroNombre.Size = new System.Drawing.Size(174, 20);
             this.textBoxFiltroNombre.TabIndex = 1;
-            this.textBoxFiltroNombre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBoxFiltroCodigo
             // 
@@ -330,7 +322,6 @@
             this.textBoxFiltroCodigo.Name = "textBoxFiltroCodigo";
             this.textBoxFiltroCodigo.Size = new System.Drawing.Size(174, 20);
             this.textBoxFiltroCodigo.TabIndex = 1;
-            this.textBoxFiltroCodigo.TextChanged += new System.EventHandler(this.textBoxFiltroCodigo_TextChanged);
             // 
             // labelTituloArticulos
             // 
@@ -341,7 +332,6 @@
             this.labelTituloArticulos.Size = new System.Drawing.Size(105, 13);
             this.labelTituloArticulos.TabIndex = 1;
             this.labelTituloArticulos.Text = "Gestión De Artículos";
-            this.labelTituloArticulos.Click += new System.EventHandler(this.labelTituloArticulos_Click);
             // 
             // frmPrincipal
             // 

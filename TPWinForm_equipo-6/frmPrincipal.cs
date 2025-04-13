@@ -50,42 +50,5 @@ namespace TPWinForm_equipo_6
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-        }
-        private void labelTituloArticulos_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBoxFiltroCodigo_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-        }
-        private void groupBoxFiltros_Enter(object sender, EventArgs e)
-        {
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
