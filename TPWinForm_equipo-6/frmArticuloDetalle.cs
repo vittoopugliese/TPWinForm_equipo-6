@@ -17,7 +17,14 @@ namespace TPWinForm_equipo_6
         {
             InitializeComponent();
             articulo = articuloSeleccionado;
-            label1.Text = articulo.Descripcion.ToString();
+            textBoxNombreDetalle.Text = articulo.Nombre;
+            textBoxMarcaDetalle.Text = articulo.Marca.Descripcion;
+            textBoxCategoriaDetalle.Text = articulo.Categoria.Descripcion;
+            textBoxPrecioDetalle.Text = articulo.Precio.ToString();
+            textBoxCodigoDetalle.Text = articulo.Codigo.ToString();
+            textBoxIdCategoriaDetalle.Text = articulo.IdCategoria.ToString();
+            textBoxIdMarcaDetalle.Text = articulo.IdMarca.ToString();
+            textBoxDescripcionDetalle.Text = articulo.Descripcion.ToString();
         }
     }
 }

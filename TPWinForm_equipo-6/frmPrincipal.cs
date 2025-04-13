@@ -54,6 +54,8 @@ namespace TPWinForm_equipo_6
 
         private void dataGridViewArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            // rowIndex 0 son los headers, por ende si no se esta seleccionando un header obtiene de las
+            // rows los datos del articulo y castea esos datos al tipo Articulo para pasarselo al dialog
             if (e.RowIndex >= 0)
             {
                 dataGridViewArticulos.Rows[e.RowIndex].Selected = true;

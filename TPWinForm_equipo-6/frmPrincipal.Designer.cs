@@ -38,7 +38,6 @@
             this.buttonExportar = new System.Windows.Forms.Button();
             this.buttonDetalleArt = new System.Windows.Forms.Button();
             this.buttonEliminarArt = new System.Windows.Forms.Button();
-            this.buttonEditarArt = new System.Windows.Forms.Button();
             this.buttonNuevoArt = new System.Windows.Forms.Button();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
             this.labelFiltroDescripcion = new System.Windows.Forms.Label();
@@ -106,7 +105,6 @@
             this.panelContenido.Controls.Add(this.buttonExportar);
             this.panelContenido.Controls.Add(this.buttonDetalleArt);
             this.panelContenido.Controls.Add(this.buttonEliminarArt);
-            this.panelContenido.Controls.Add(this.buttonEditarArt);
             this.panelContenido.Controls.Add(this.buttonNuevoArt);
             this.panelContenido.Controls.Add(this.groupBoxFiltros);
             this.panelContenido.Controls.Add(this.labelTituloArticulos);
@@ -165,7 +163,7 @@
             // buttonDetalleArt
             // 
             this.buttonDetalleArt.BackColor = System.Drawing.Color.Gold;
-            this.buttonDetalleArt.Location = new System.Drawing.Point(354, 126);
+            this.buttonDetalleArt.Location = new System.Drawing.Point(239, 126);
             this.buttonDetalleArt.Name = "buttonDetalleArt";
             this.buttonDetalleArt.Size = new System.Drawing.Size(109, 39);
             this.buttonDetalleArt.TabIndex = 5;
@@ -176,26 +174,16 @@
             // buttonEliminarArt
             // 
             this.buttonEliminarArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
-            this.buttonEliminarArt.Location = new System.Drawing.Point(239, 126);
+            this.buttonEliminarArt.Location = new System.Drawing.Point(124, 126);
             this.buttonEliminarArt.Name = "buttonEliminarArt";
             this.buttonEliminarArt.Size = new System.Drawing.Size(109, 39);
             this.buttonEliminarArt.TabIndex = 4;
             this.buttonEliminarArt.Text = "Eliminar";
             this.buttonEliminarArt.UseVisualStyleBackColor = false;
             // 
-            // buttonEditarArt
-            // 
-            this.buttonEditarArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.buttonEditarArt.Location = new System.Drawing.Point(124, 126);
-            this.buttonEditarArt.Name = "buttonEditarArt";
-            this.buttonEditarArt.Size = new System.Drawing.Size(109, 39);
-            this.buttonEditarArt.TabIndex = 3;
-            this.buttonEditarArt.Text = "Editar";
-            this.buttonEditarArt.UseVisualStyleBackColor = false;
-            // 
             // buttonNuevoArt
             // 
-            this.buttonNuevoArt.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonNuevoArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.buttonNuevoArt.Location = new System.Drawing.Point(9, 126);
             this.buttonNuevoArt.Name = "buttonNuevoArt";
             this.buttonNuevoArt.Size = new System.Drawing.Size(109, 39);
@@ -379,7 +367,6 @@
         private System.Windows.Forms.Button buttonExportar;
         private System.Windows.Forms.Button buttonDetalleArt;
         private System.Windows.Forms.Button buttonEliminarArt;
-        private System.Windows.Forms.Button buttonEditarArt;
         private System.Windows.Forms.Button buttonNuevoArt;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
     }
