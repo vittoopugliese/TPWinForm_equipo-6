@@ -12,9 +12,12 @@ namespace TPWinForm_equipo_6
 {
     public partial class frmArticuloDetalle : Form
     {
-        public frmArticuloDetalle()
+        private Articulo articulo;
+        public frmArticuloDetalle(Articulo articuloSeleccionado)
         {
             InitializeComponent();
+            articulo = articuloSeleccionado;
+            label1.Text = articulo.Descripcion.ToString();
         }
     }
 }

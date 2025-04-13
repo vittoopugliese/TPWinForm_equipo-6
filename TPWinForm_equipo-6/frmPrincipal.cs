@@ -13,6 +13,7 @@ namespace TPWinForm_equipo_6
     public partial class frmPrincipal : Form
     {
         private BaseDeDatos bd = new BaseDeDatos();
+        private Articulo articuloSeleccionado = null;
 
         public frmPrincipal()
         {
@@ -49,6 +50,28 @@ namespace TPWinForm_equipo_6
         {
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
+        }
+
+        private void dataGridViewArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dataGridViewArticulos.Rows[e.RowIndex].Selected = true;
+                articuloSeleccionado = (Articulo)dataGridViewArticulos.CurrentRow.DataBoundItem;
+            }
+        }
+
+        private void buttonDetalleArt_Click(object sender, EventArgs e)
+        {
+            if (articuloSeleccionado != null)
+            {
+                frmArticuloDetalle detalle = new frmArticuloDetalle(articuloSeleccionado);
+                detalle.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un artículo para ver sus detalles.");
+            }
         }
     }
 }
