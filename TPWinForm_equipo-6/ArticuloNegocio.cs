@@ -69,5 +69,100 @@ namespace TPWinForm_equipo_6
 
             return listaArticulos;
         }
+
+        public void CrearNuevoArticulo(Articulo nuevoArticulo)
+            // por el momento hay un error que hace que al crear un nuevo articulo, se cree dos veces
+            // luego investigare xq pasa .
+        {
+            try
+            {
+                bd.setearConsulta(  "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
+                                    "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria); " +
+                                    "SELECT SCOPE_IDENTITY();");
+
+                bd.setearParametro("@Codigo", nuevoArticulo.Codigo);
+                bd.setearParametro("@Nombre", nuevoArticulo.Nombre);
+                bd.setearParametro("@Descripcion", nuevoArticulo.Descripcion);
+                bd.setearParametro("@Precio", nuevoArticulo.Precio);
+                bd.setearParametro("@IdMarca", nuevoArticulo.IdMarca);
+                bd.setearParametro("@IdCategoria", nuevoArticulo.IdCategoria);
+
+                bd.ejecutarLectura();
+
+                if (bd.Lector.Read())
+                {
+                    nuevoArticulo.Id = Convert.ToInt32(bd.Lector[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear: " + ex.Message);
+            }
+            finally
+            {
+                bd.cerrarConexion();
+            }
+        }
+
+        public void EditarArticuloExistente(Articulo articuloEditado)
+        {
+            try
+            {
+                bd.setearConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio, IdMarca = @IdMarca, IdCategoria = @IdCategoria WHERE Id = @Id");
+
+                bd.setearParametro("@Codigo", articuloEditado.Codigo);
+                bd.setearParametro("@Nombre", articuloEditado.Nombre);
+                bd.setearParametro("@Descripcion", articuloEditado.Descripcion);
+                bd.setearParametro("@Precio", articuloEditado.Precio);
+                bd.setearParametro("@IdMarca", articuloEditado.IdMarca);
+                bd.setearParametro("@IdCategoria", articuloEditado.IdCategoria);
+                bd.setearParametro("@Id", articuloEditado.Id);
+
+                bd.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar: " + ex.Message);
+            }
+            finally
+            {
+                bd.cerrarConexion();
+            }
+        }
+
+        public bool EliminarArticuloSeleccionado(int idArticulo)
+        {
+            try
+            {
+                bd.setearConsulta("SELECT Id FROM ARTICULOS WHERE Id = @Id");
+                bd.setearParametro("@Id", idArticulo);
+                bd.ejecutarLectura();
+
+                if (!bd.Lector.Read())
+                {
+                    MessageBox.Show("El articulo a eliminar no existe o ya fue eliminado...");
+                    bd.cerrarConexion();
+                    return false;
+                }
+
+                bd.cerrarConexion();
+
+                bd.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @Id");
+                bd.setearParametro("@Id", idArticulo);
+                bd.ejecutarAccion();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                bd.cerrarConexion();
+            }
+        }
+
     }
 }

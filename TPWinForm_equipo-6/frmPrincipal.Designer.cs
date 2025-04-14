@@ -166,6 +166,7 @@
             this.buttonEliminarArt.TabIndex = 4;
             this.buttonEliminarArt.Text = "Eliminar";
             this.buttonEliminarArt.UseVisualStyleBackColor = false;
+            this.buttonEliminarArt.Click += new System.EventHandler(this.buttonEliminarArt_Click);
             // 
             // buttonNuevoArt
             // 
@@ -176,6 +177,7 @@
             this.buttonNuevoArt.TabIndex = 2;
             this.buttonNuevoArt.Text = "Nuevo";
             this.buttonNuevoArt.UseVisualStyleBackColor = false;
+            this.buttonNuevoArt.Click += new System.EventHandler(this.buttonNuevoArt_Click);
             // 
             // groupBoxFiltros
             // 

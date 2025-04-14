@@ -14,18 +14,21 @@ namespace TPWinForm_equipo_6
     {
         private BaseDeDatos bd = new BaseDeDatos();
         private Articulo articuloSeleccionado = null;
+        private ArticuloNegocio articuloNegocio;
 
         public frmPrincipal()
         {
             InitializeComponent();
+
+            articuloNegocio = new ArticuloNegocio();
+
             CargarArticulos();
         }
 
         private void CargarArticulos()
         {
             try
-            {
-                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            {            
                 List<Articulo> listaArticulos = articuloNegocio.Listar();
 
                 dataGridViewArticulos.DataSource = listaArticulos;
@@ -63,13 +66,48 @@ namespace TPWinForm_equipo_6
             {
                 frmArticuloDetalle detalle = new frmArticuloDetalle(articuloSeleccionado);
                 detalle.ShowDialog();
+                // al parecer, aca hay una pausa y hasta que el dialogo no se cierre, no se va a ejecutar la siguiente linea para refrescar la lista
+                // eso esta bien porque es el comportamiento que queremos, ya que no requiere trabajo extra je
+                CargarArticulos();
             }
             else
             {
                 MessageBox.Show("Por favor seleccione un artículo para ver sus detalles.");
             }
         }
+        
+        private void buttonNuevoArt_Click(object sender, EventArgs e)
+        {
+            frmArticuloDetalle detalle = new frmArticuloDetalle();
+            detalle.ShowDialog();
+            // mini pausa hasta que el dialogo se cierre, luego de crear el nuevo registro ,  se ejectuta CargarArticulos...
+            CargarArticulos();
+        }
 
+        private void buttonEliminarArt_Click(object sender, EventArgs e)
+        {
+            if (articuloSeleccionado == null)
+            {
+                MessageBox.Show("Por favor seleccione un artículo primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirmacion = MessageBox.Show("Eliminar el artículo?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                try
+                {
+                    articuloNegocio.EliminarArticuloSeleccionado(articuloSeleccionado.Id);
+                    MessageBox.Show("Artículo eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarArticulos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar el artículo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
 
     }

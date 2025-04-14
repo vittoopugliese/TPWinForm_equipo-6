@@ -48,9 +48,9 @@
             this.textBoxMarcaDetalle = new System.Windows.Forms.TextBox();
             this.textBoxNombreDetalle = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBoxImagenPrincipalDetalle = new System.Windows.Forms.PictureBox();
             this.buttonDescartarDetalle = new System.Windows.Forms.Button();
             this.buttonEfectuarEdicionDetalle = new System.Windows.Forms.Button();
-            this.pictureBoxImagenPrincipalDetalle = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenPrincipalDetalle)).BeginInit();
@@ -257,6 +257,14 @@
             this.panel3.Size = new System.Drawing.Size(354, 434);
             this.panel3.TabIndex = 11;
             // 
+            // pictureBoxImagenPrincipalDetalle
+            // 
+            this.pictureBoxImagenPrincipalDetalle.Location = new System.Drawing.Point(15, 16);
+            this.pictureBoxImagenPrincipalDetalle.Name = "pictureBoxImagenPrincipalDetalle";
+            this.pictureBoxImagenPrincipalDetalle.Size = new System.Drawing.Size(325, 241);
+            this.pictureBoxImagenPrincipalDetalle.TabIndex = 0;
+            this.pictureBoxImagenPrincipalDetalle.TabStop = false;
+            // 
             // buttonDescartarDetalle
             // 
             this.buttonDescartarDetalle.BackColor = System.Drawing.Color.OrangeRed;
@@ -265,8 +273,9 @@
             this.buttonDescartarDetalle.Name = "buttonDescartarDetalle";
             this.buttonDescartarDetalle.Size = new System.Drawing.Size(168, 50);
             this.buttonDescartarDetalle.TabIndex = 12;
-            this.buttonDescartarDetalle.Text = "Descartar Edición";
+            this.buttonDescartarDetalle.Text = "Descartar";
             this.buttonDescartarDetalle.UseVisualStyleBackColor = false;
+            this.buttonDescartarDetalle.Click += new System.EventHandler(this.buttonDescartarDetalle_Click);
             // 
             // buttonEfectuarEdicionDetalle
             // 
@@ -278,14 +287,7 @@
             this.buttonEfectuarEdicionDetalle.TabIndex = 13;
             this.buttonEfectuarEdicionDetalle.Text = "Efectuar Edición";
             this.buttonEfectuarEdicionDetalle.UseVisualStyleBackColor = false;
-            // 
-            // pictureBoxImagenPrincipalDetalle
-            // 
-            this.pictureBoxImagenPrincipalDetalle.Location = new System.Drawing.Point(15, 16);
-            this.pictureBoxImagenPrincipalDetalle.Name = "pictureBoxImagenPrincipalDetalle";
-            this.pictureBoxImagenPrincipalDetalle.Size = new System.Drawing.Size(325, 241);
-            this.pictureBoxImagenPrincipalDetalle.TabIndex = 0;
-            this.pictureBoxImagenPrincipalDetalle.TabStop = false;
+            this.buttonEfectuarEdicionDetalle.Click += new System.EventHandler(this.buttonEfectuarEdicionDetalle_Click);
             // 
             // frmArticuloDetalle
             // 
