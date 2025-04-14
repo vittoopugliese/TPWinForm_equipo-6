@@ -31,7 +31,7 @@ namespace TPWinForm_equipo_6
                 foreach (Marca marca in listaMarcas) diccionarioMarcas.Add(marca.Id, marca);
                 foreach (Categoria categoria in listaCategorias) diccionarioCategorias.Add(categoria.Id, categoria);
 
-                bd.setearConsulta("SELECT * FROM ARTICULOS");
+                bd.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria FROM ARTICULOS");
                 bd.ejecutarLectura();
 
                 while (bd.Lector.Read())

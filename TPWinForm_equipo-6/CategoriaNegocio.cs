@@ -18,7 +18,7 @@ namespace TPWinForm_equipo_6
 
             try
             {
-                bd.setearConsulta("SELECT * FROM CATEGORIAS");
+                bd.setearConsulta("SELECT Id, Descripcion FROM CATEGORIAS");
                 bd.ejecutarLectura();
 
                 while (bd.Lector.Read())
