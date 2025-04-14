@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace TPWinForm_equipo_6
 {
@@ -28,17 +29,17 @@ namespace TPWinForm_equipo_6
                     marca.Descripcion = bd.Lector["Descripcion"].ToString();
                     listaMarcas.Add(marca);
                 }
-
-                return listaMarcas;
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 bd.cerrarConexion();
             }
+
+            return listaMarcas;
         }
     }
 }

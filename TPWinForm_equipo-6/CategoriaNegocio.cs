@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace TPWinForm_equipo_6
 {
@@ -28,17 +29,17 @@ namespace TPWinForm_equipo_6
                     categoria.Descripcion = bd.Lector["Descripcion"].ToString();
                     listaCategorias.Add(categoria);
                 }
-
-                return listaCategorias;
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 bd.cerrarConexion();
             }
+
+            return listaCategorias;
         }
     }
 }

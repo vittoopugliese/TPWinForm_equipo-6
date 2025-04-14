@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonMarcas = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
-            this.buttonExportar = new System.Windows.Forms.Button();
             this.buttonDetalleArt = new System.Windows.Forms.Button();
             this.buttonEliminarArt = new System.Windows.Forms.Button();
             this.buttonNuevoArt = new System.Windows.Forms.Button();
@@ -102,7 +101,6 @@
             // panelContenido
             // 
             this.panelContenido.Controls.Add(this.dataGridViewArticulos);
-            this.panelContenido.Controls.Add(this.buttonExportar);
             this.panelContenido.Controls.Add(this.buttonDetalleArt);
             this.panelContenido.Controls.Add(this.buttonEliminarArt);
             this.panelContenido.Controls.Add(this.buttonNuevoArt);
@@ -119,28 +117,26 @@
             // 
             this.dataGridViewArticulos.AllowUserToAddRows = false;
             this.dataGridViewArticulos.AllowUserToDeleteRows = false;
-            this.dataGridViewArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewArticulos.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridViewArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewArticulos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewArticulos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewArticulos.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewArticulos.Location = new System.Drawing.Point(9, 171);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
@@ -148,22 +144,12 @@
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 477);
             this.dataGridViewArticulos.TabIndex = 7;
-            this.dataGridViewArticulos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewArticulos_CellMouseClick);
-            // 
-            // buttonExportar
-            // 
-            this.buttonExportar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonExportar.Location = new System.Drawing.Point(894, 126);
-            this.buttonExportar.Name = "buttonExportar";
-            this.buttonExportar.Size = new System.Drawing.Size(109, 39);
-            this.buttonExportar.TabIndex = 6;
-            this.buttonExportar.Text = "Exportar";
-            this.buttonExportar.UseVisualStyleBackColor = false;
+            this.dataGridViewArticulos.SelectionChanged += new System.EventHandler(this.dataGridViewArticulos_SelectionChanged);
             // 
             // buttonDetalleArt
             // 
             this.buttonDetalleArt.BackColor = System.Drawing.Color.Gold;
-            this.buttonDetalleArt.Location = new System.Drawing.Point(239, 126);
+            this.buttonDetalleArt.Location = new System.Drawing.Point(894, 126);
             this.buttonDetalleArt.Name = "buttonDetalleArt";
             this.buttonDetalleArt.Size = new System.Drawing.Size(109, 39);
             this.buttonDetalleArt.TabIndex = 5;
@@ -364,7 +350,6 @@
         private System.Windows.Forms.Label labelFiltroNombre;
         private System.Windows.Forms.Label labelFiltroCodigo;
         private System.Windows.Forms.Label labelFiltroDescripcion;
-        private System.Windows.Forms.Button buttonExportar;
         private System.Windows.Forms.Button buttonDetalleArt;
         private System.Windows.Forms.Button buttonEliminarArt;
         private System.Windows.Forms.Button buttonNuevoArt;

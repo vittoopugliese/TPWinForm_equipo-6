@@ -29,6 +29,7 @@ namespace TPWinForm_equipo_6
                 List<Articulo> listaArticulos = articuloNegocio.Listar();
 
                 dataGridViewArticulos.DataSource = listaArticulos;
+                dataGridViewArticulos.RowHeadersVisible = false;
 
                 dataGridViewArticulos.Columns["Id"].Visible = false;
                 dataGridViewArticulos.Columns["IdMarca"].Visible = false;
@@ -51,16 +52,9 @@ namespace TPWinForm_equipo_6
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
         }
-
-        private void dataGridViewArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            // rowIndex 0 son los headers, por ende si no se esta seleccionando un header obtiene de las
-            // rows los datos del articulo y castea esos datos al tipo Articulo para pasarselo al dialog
-            if (e.RowIndex >= 0)
-            {
-                dataGridViewArticulos.Rows[e.RowIndex].Selected = true;
-                articuloSeleccionado = (Articulo)dataGridViewArticulos.CurrentRow.DataBoundItem;
-            }
+            articuloSeleccionado = (Articulo)dataGridViewArticulos.CurrentRow.DataBoundItem;
         }
 
         private void buttonDetalleArt_Click(object sender, EventArgs e)
@@ -75,5 +69,8 @@ namespace TPWinForm_equipo_6
                 MessageBox.Show("Por favor seleccione un artículo para ver sus detalles.");
             }
         }
+
+
+
     }
 }

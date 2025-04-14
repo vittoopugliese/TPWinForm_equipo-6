@@ -6,6 +6,6 @@ namespace TPWinForm_equipo_6
     {
         public int Id { get; set; }
         public int IdArticulo { get; set; }
-        public string UrlImagen { get; set; }
+        public string imagenUrl { get; set; }
     }
 }

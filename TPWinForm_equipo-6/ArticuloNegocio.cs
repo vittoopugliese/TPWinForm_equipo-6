@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace TPWinForm_equipo_6
 {
@@ -60,13 +61,13 @@ namespace TPWinForm_equipo_6
 
                     listaArticulos.Add(articulo);
                 }
-
-                return listaArticulos;
             } catch (Exception ex) {
-                throw ex;
+                MessageBox.Show(ex.Message);
             } finally {
                 bd.cerrarConexion();
             }
+
+            return listaArticulos;
         }
     }
 }

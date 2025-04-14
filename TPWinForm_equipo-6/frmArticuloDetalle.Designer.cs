@@ -50,7 +50,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonDescartarDetalle = new System.Windows.Forms.Button();
             this.buttonEfectuarEdicionDetalle = new System.Windows.Forms.Button();
+            this.pictureBoxImagenPrincipalDetalle = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenPrincipalDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCodigoDetalle
@@ -248,6 +251,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.Controls.Add(this.pictureBoxImagenPrincipalDetalle);
             this.panel3.Location = new System.Drawing.Point(556, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(354, 434);
@@ -275,6 +279,14 @@
             this.buttonEfectuarEdicionDetalle.Text = "Efectuar Edición";
             this.buttonEfectuarEdicionDetalle.UseVisualStyleBackColor = false;
             // 
+            // pictureBoxImagenPrincipalDetalle
+            // 
+            this.pictureBoxImagenPrincipalDetalle.Location = new System.Drawing.Point(15, 16);
+            this.pictureBoxImagenPrincipalDetalle.Name = "pictureBoxImagenPrincipalDetalle";
+            this.pictureBoxImagenPrincipalDetalle.Size = new System.Drawing.Size(325, 241);
+            this.pictureBoxImagenPrincipalDetalle.TabIndex = 0;
+            this.pictureBoxImagenPrincipalDetalle.TabStop = false;
+            // 
             // frmArticuloDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +302,8 @@
             this.Text = "Detalle Del Articulo...";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenPrincipalDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,5 +332,6 @@
         private System.Windows.Forms.TextBox textBoxDescripcionDetalle;
         private System.Windows.Forms.Button buttonDescartarDetalle;
         private System.Windows.Forms.Button buttonEfectuarEdicionDetalle;
+        private System.Windows.Forms.PictureBox pictureBoxImagenPrincipalDetalle;
     }
 }

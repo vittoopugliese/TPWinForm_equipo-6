@@ -50,14 +50,17 @@ namespace TPWinForm_equipo_6
             }
         }
 
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor ?? DBNull.Value);
+        }
+
         public void ejecutarAccion()
         {
             try
             {
-                if (conexion.State != ConnectionState.Open) {
-                    conexion.Open();
-                    comando.ExecuteNonQuery();
-                }
+                if (conexion.State != ConnectionState.Open) conexion.Open();
+                comando.ExecuteNonQuery();
             } catch (Exception ex) {
                 throw new Exception("Error al ejecutar acción: " + ex.Message);
             }
