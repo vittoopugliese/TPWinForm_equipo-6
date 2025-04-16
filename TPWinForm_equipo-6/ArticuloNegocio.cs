@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TPWinForm_equipo_6
@@ -19,20 +20,7 @@ namespace TPWinForm_equipo_6
 
             try
             {
-                MarcaNegocio marcaNegocio = new MarcaNegocio();
-                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
-                List<Marca> listaMarcas = marcaNegocio.Listar();
-                List<Categoria> listaCategorias = categoriaNegocio.Listar();
-
-                // diccionarios para acceder rapidamente a su descripcion mediante id
-                Dictionary<int, Marca> diccionarioMarcas = new Dictionary<int, Marca>();
-                Dictionary<int, Categoria> diccionarioCategorias = new Dictionary<int, Categoria>();
-
-                foreach (Marca marca in listaMarcas) diccionarioMarcas.Add(marca.Id, marca);
-                foreach (Categoria categoria in listaCategorias) diccionarioCategorias.Add(categoria.Id, categoria);
-
-                bd.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria FROM ARTICULOS");
+                bd.setearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdMarca, A.IdCategoria, M.Descripcion Marca, C.Descripcion Categoria FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id");
                 bd.ejecutarLectura();
 
                 while (bd.Lector.Read())
@@ -43,21 +31,11 @@ namespace TPWinForm_equipo_6
                     articulo.Codigo = bd.Lector["Codigo"].ToString();
                     articulo.Nombre = bd.Lector["Nombre"].ToString();
                     articulo.Descripcion = bd.Lector["Descripcion"].ToString();
-                    articulo.IdMarca = Convert.ToInt32(bd.Lector["IdMarca"]);
-                    articulo.IdCategoria = Convert.ToInt32(bd.Lector["IdCategoria"]);
                     articulo.Precio = Convert.ToDecimal(bd.Lector["Precio"]);
-
-                    if (diccionarioMarcas.ContainsKey(articulo.IdMarca)) {
-                        articulo.Marca = diccionarioMarcas[articulo.IdMarca];
-                    } else {
-                        articulo.Marca = new Marca { Id = 0, Descripcion = "-- Sin Marca --" };
-                    }
-
-                    if (diccionarioCategorias.ContainsKey(articulo.IdCategoria)) {
-                        articulo.Categoria = diccionarioCategorias[articulo.IdCategoria];
-                    } else {
-                        articulo.Categoria = new Categoria { Id = 0, Descripcion = "-- Sin Categoría --" };
-                    }
+                    articulo.IdMarca = Convert.ToInt32(bd.Lector["IdMarca"]);
+                    articulo.Marca = new Marca(Convert.ToInt32(bd.Lector["IdMarca"]), bd.Lector["Marca"]?.ToString() ?? string.Empty);
+                    articulo.IdCategoria = Convert.ToInt32(bd.Lector["IdCategoria"]);
+                    articulo.Categoria = new Categoria(Convert.ToInt32(bd.Lector["IdCategoria"]), bd.Lector["Categoria"]?.ToString() ??string.Empty);
 
                     listaArticulos.Add(articulo);
                 }
@@ -71,15 +49,10 @@ namespace TPWinForm_equipo_6
         }
 
         public void CrearNuevoArticulo(Articulo nuevoArticulo)
-            // por el momento hay un error que hace que al crear un nuevo articulo, se cree dos veces
-            // luego investigare xq pasa .
         {
             try
             {
-                bd.setearConsulta(  "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
-                                    "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria); " +
-                                    "SELECT SCOPE_IDENTITY();");
-
+                bd.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria) SELECT SCOPE_IDENTITY()");
                 bd.setearParametro("@Codigo", nuevoArticulo.Codigo);
                 bd.setearParametro("@Nombre", nuevoArticulo.Nombre);
                 bd.setearParametro("@Descripcion", nuevoArticulo.Descripcion);

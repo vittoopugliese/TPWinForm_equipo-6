@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonMarcas = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             this.buttonEliminarArt = new System.Windows.Forms.Button();
             this.buttonNuevoArt = new System.Windows.Forms.Button();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
+            this.comboBoxCategoriaFiltro = new System.Windows.Forms.ComboBox();
+            this.comboBoxMarcaFiltro = new System.Windows.Forms.ComboBox();
             this.labelFiltroDescripcion = new System.Windows.Forms.Label();
             this.labelFiltroCategoria = new System.Windows.Forms.Label();
             this.labelFiltroMarca = new System.Windows.Forms.Label();
@@ -46,8 +49,6 @@
             this.labelFiltroCodigo = new System.Windows.Forms.Label();
             this.buttonBuscarArticulos = new System.Windows.Forms.Button();
             this.textBoxFiltroDescripcion = new System.Windows.Forms.TextBox();
-            this.textBoxFiltroCategoria = new System.Windows.Forms.TextBox();
-            this.textBoxFiltroMarca = new System.Windows.Forms.TextBox();
             this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
             this.textBoxFiltroCodigo = new System.Windows.Forms.TextBox();
             this.labelTituloArticulos = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@
             this.buttonMarcas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMarcas.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMarcas.ForeColor = System.Drawing.SystemColors.Highlight;
             this.buttonMarcas.Location = new System.Drawing.Point(0, 330);
             this.buttonMarcas.Name = "buttonMarcas";
@@ -89,6 +91,7 @@
             this.buttonCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCategorias.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCategorias.ForeColor = System.Drawing.SystemColors.Highlight;
             this.buttonCategorias.Location = new System.Drawing.Point(0, 0);
             this.buttonCategorias.Name = "buttonCategorias";
@@ -138,20 +141,22 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewArticulos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewArticulos.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewArticulos.Location = new System.Drawing.Point(9, 171);
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(12, 222);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
             this.dataGridViewArticulos.ReadOnly = true;
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 477);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(994, 426);
             this.dataGridViewArticulos.TabIndex = 7;
             this.dataGridViewArticulos.SelectionChanged += new System.EventHandler(this.dataGridViewArticulos_SelectionChanged);
             // 
             // buttonDetalleArt
             // 
-            this.buttonDetalleArt.BackColor = System.Drawing.Color.Gold;
-            this.buttonDetalleArt.Location = new System.Drawing.Point(894, 126);
+            this.buttonDetalleArt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonDetalleArt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonDetalleArt.Location = new System.Drawing.Point(906, 177);
+            this.buttonDetalleArt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonDetalleArt.Name = "buttonDetalleArt";
-            this.buttonDetalleArt.Size = new System.Drawing.Size(109, 39);
+            this.buttonDetalleArt.Size = new System.Drawing.Size(100, 40);
             this.buttonDetalleArt.TabIndex = 5;
             this.buttonDetalleArt.Text = "Ver Detalle";
             this.buttonDetalleArt.UseVisualStyleBackColor = false;
@@ -159,10 +164,12 @@
             // 
             // buttonEliminarArt
             // 
-            this.buttonEliminarArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
-            this.buttonEliminarArt.Location = new System.Drawing.Point(124, 126);
+            this.buttonEliminarArt.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonEliminarArt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonEliminarArt.Location = new System.Drawing.Point(127, 177);
+            this.buttonEliminarArt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonEliminarArt.Name = "buttonEliminarArt";
-            this.buttonEliminarArt.Size = new System.Drawing.Size(109, 39);
+            this.buttonEliminarArt.Size = new System.Drawing.Size(100, 40);
             this.buttonEliminarArt.TabIndex = 4;
             this.buttonEliminarArt.Text = "Eliminar";
             this.buttonEliminarArt.UseVisualStyleBackColor = false;
@@ -170,10 +177,12 @@
             // 
             // buttonNuevoArt
             // 
-            this.buttonNuevoArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.buttonNuevoArt.Location = new System.Drawing.Point(9, 126);
+            this.buttonNuevoArt.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonNuevoArt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonNuevoArt.Location = new System.Drawing.Point(12, 177);
+            this.buttonNuevoArt.Margin = new System.Windows.Forms.Padding(0);
             this.buttonNuevoArt.Name = "buttonNuevoArt";
-            this.buttonNuevoArt.Size = new System.Drawing.Size(109, 39);
+            this.buttonNuevoArt.Size = new System.Drawing.Size(100, 40);
             this.buttonNuevoArt.TabIndex = 2;
             this.buttonNuevoArt.Text = "Nuevo";
             this.buttonNuevoArt.UseVisualStyleBackColor = false;
@@ -182,6 +191,8 @@
             // groupBoxFiltros
             // 
             this.groupBoxFiltros.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBoxFiltros.Controls.Add(this.comboBoxCategoriaFiltro);
+            this.groupBoxFiltros.Controls.Add(this.comboBoxMarcaFiltro);
             this.groupBoxFiltros.Controls.Add(this.labelFiltroDescripcion);
             this.groupBoxFiltros.Controls.Add(this.labelFiltroCategoria);
             this.groupBoxFiltros.Controls.Add(this.labelFiltroMarca);
@@ -189,26 +200,45 @@
             this.groupBoxFiltros.Controls.Add(this.labelFiltroCodigo);
             this.groupBoxFiltros.Controls.Add(this.buttonBuscarArticulos);
             this.groupBoxFiltros.Controls.Add(this.textBoxFiltroDescripcion);
-            this.groupBoxFiltros.Controls.Add(this.textBoxFiltroCategoria);
-            this.groupBoxFiltros.Controls.Add(this.textBoxFiltroMarca);
             this.groupBoxFiltros.Controls.Add(this.textBoxFiltroNombre);
             this.groupBoxFiltros.Controls.Add(this.textBoxFiltroCodigo);
             this.groupBoxFiltros.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBoxFiltros.Location = new System.Drawing.Point(9, 29);
+            this.groupBoxFiltros.Location = new System.Drawing.Point(12, 27);
             this.groupBoxFiltros.Name = "groupBoxFiltros";
-            this.groupBoxFiltros.Size = new System.Drawing.Size(994, 91);
+            this.groupBoxFiltros.Size = new System.Drawing.Size(994, 142);
             this.groupBoxFiltros.TabIndex = 1;
             this.groupBoxFiltros.TabStop = false;
             this.groupBoxFiltros.Text = "Filtros";
+            // 
+            // comboBoxCategoriaFiltro
+            // 
+            this.comboBoxCategoriaFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoriaFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBoxCategoriaFiltro.FormattingEnabled = true;
+            this.comboBoxCategoriaFiltro.Location = new System.Drawing.Point(552, 63);
+            this.comboBoxCategoriaFiltro.Name = "comboBoxCategoriaFiltro";
+            this.comboBoxCategoriaFiltro.Size = new System.Drawing.Size(399, 24);
+            this.comboBoxCategoriaFiltro.TabIndex = 3;
+            // 
+            // comboBoxMarcaFiltro
+            // 
+            this.comboBoxMarcaFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMarcaFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBoxMarcaFiltro.FormattingEnabled = true;
+            this.comboBoxMarcaFiltro.Location = new System.Drawing.Point(552, 20);
+            this.comboBoxMarcaFiltro.Name = "comboBoxMarcaFiltro";
+            this.comboBoxMarcaFiltro.Size = new System.Drawing.Size(399, 24);
+            this.comboBoxMarcaFiltro.TabIndex = 1;
             // 
             // labelFiltroDescripcion
             // 
             this.labelFiltroDescripcion.AutoSize = true;
             this.labelFiltroDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelFiltroDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFiltroDescripcion.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelFiltroDescripcion.Location = new System.Drawing.Point(6, 53);
+            this.labelFiltroDescripcion.Location = new System.Drawing.Point(18, 105);
             this.labelFiltroDescripcion.Name = "labelFiltroDescripcion";
-            this.labelFiltroDescripcion.Size = new System.Drawing.Size(66, 13);
+            this.labelFiltroDescripcion.Size = new System.Drawing.Size(91, 18);
             this.labelFiltroDescripcion.TabIndex = 8;
             this.labelFiltroDescripcion.Text = "Descripcion:";
             // 
@@ -216,10 +246,11 @@
             // 
             this.labelFiltroCategoria.AutoSize = true;
             this.labelFiltroCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelFiltroCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFiltroCategoria.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelFiltroCategoria.Location = new System.Drawing.Point(716, 27);
+            this.labelFiltroCategoria.Location = new System.Drawing.Point(471, 64);
             this.labelFiltroCategoria.Name = "labelFiltroCategoria";
-            this.labelFiltroCategoria.Size = new System.Drawing.Size(55, 13);
+            this.labelFiltroCategoria.Size = new System.Drawing.Size(76, 18);
             this.labelFiltroCategoria.TabIndex = 7;
             this.labelFiltroCategoria.Text = "Categoria:";
             // 
@@ -227,10 +258,11 @@
             // 
             this.labelFiltroMarca.AutoSize = true;
             this.labelFiltroMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelFiltroMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFiltroMarca.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelFiltroMarca.Location = new System.Drawing.Point(488, 27);
+            this.labelFiltroMarca.Location = new System.Drawing.Point(471, 23);
             this.labelFiltroMarca.Name = "labelFiltroMarca";
-            this.labelFiltroMarca.Size = new System.Drawing.Size(40, 13);
+            this.labelFiltroMarca.Size = new System.Drawing.Size(54, 18);
             this.labelFiltroMarca.TabIndex = 6;
             this.labelFiltroMarca.Text = "Marca:";
             // 
@@ -238,10 +270,11 @@
             // 
             this.labelFiltroNombre.AutoSize = true;
             this.labelFiltroNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFiltroNombre.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelFiltroNombre.Location = new System.Drawing.Point(253, 27);
+            this.labelFiltroNombre.Location = new System.Drawing.Point(18, 66);
             this.labelFiltroNombre.Name = "labelFiltroNombre";
-            this.labelFiltroNombre.Size = new System.Drawing.Size(47, 13);
+            this.labelFiltroNombre.Size = new System.Drawing.Size(66, 18);
             this.labelFiltroNombre.TabIndex = 5;
             this.labelFiltroNombre.Text = "Nombre:";
             // 
@@ -249,63 +282,53 @@
             // 
             this.labelFiltroCodigo.AutoSize = true;
             this.labelFiltroCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelFiltroCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFiltroCodigo.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelFiltroCodigo.Location = new System.Drawing.Point(6, 27);
+            this.labelFiltroCodigo.Location = new System.Drawing.Point(18, 23);
             this.labelFiltroCodigo.Name = "labelFiltroCodigo";
-            this.labelFiltroCodigo.Size = new System.Drawing.Size(43, 13);
+            this.labelFiltroCodigo.Size = new System.Drawing.Size(60, 18);
             this.labelFiltroCodigo.TabIndex = 2;
             this.labelFiltroCodigo.Text = "Codigo:";
             // 
             // buttonBuscarArticulos
             // 
             this.buttonBuscarArticulos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBuscarArticulos.Location = new System.Drawing.Point(850, 49);
+            this.buttonBuscarArticulos.Location = new System.Drawing.Point(850, 100);
             this.buttonBuscarArticulos.Name = "buttonBuscarArticulos";
             this.buttonBuscarArticulos.Size = new System.Drawing.Size(101, 23);
-            this.buttonBuscarArticulos.TabIndex = 4;
+            this.buttonBuscarArticulos.TabIndex = 5;
             this.buttonBuscarArticulos.Text = "Buscar!";
             this.buttonBuscarArticulos.UseVisualStyleBackColor = true;
             // 
             // textBoxFiltroDescripcion
             // 
-            this.textBoxFiltroDescripcion.Location = new System.Drawing.Point(73, 50);
+            this.textBoxFiltroDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxFiltroDescripcion.Location = new System.Drawing.Point(115, 100);
             this.textBoxFiltroDescripcion.Name = "textBoxFiltroDescripcion";
-            this.textBoxFiltroDescripcion.Size = new System.Drawing.Size(774, 20);
-            this.textBoxFiltroDescripcion.TabIndex = 3;
-            // 
-            // textBoxFiltroCategoria
-            // 
-            this.textBoxFiltroCategoria.Location = new System.Drawing.Point(777, 24);
-            this.textBoxFiltroCategoria.Name = "textBoxFiltroCategoria";
-            this.textBoxFiltroCategoria.Size = new System.Drawing.Size(174, 20);
-            this.textBoxFiltroCategoria.TabIndex = 2;
-            // 
-            // textBoxFiltroMarca
-            // 
-            this.textBoxFiltroMarca.Location = new System.Drawing.Point(534, 24);
-            this.textBoxFiltroMarca.Name = "textBoxFiltroMarca";
-            this.textBoxFiltroMarca.Size = new System.Drawing.Size(174, 20);
-            this.textBoxFiltroMarca.TabIndex = 1;
+            this.textBoxFiltroDescripcion.Size = new System.Drawing.Size(726, 23);
+            this.textBoxFiltroDescripcion.TabIndex = 4;
             // 
             // textBoxFiltroNombre
             // 
-            this.textBoxFiltroNombre.Location = new System.Drawing.Point(306, 24);
+            this.textBoxFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxFiltroNombre.Location = new System.Drawing.Point(115, 20);
             this.textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            this.textBoxFiltroNombre.Size = new System.Drawing.Size(174, 20);
-            this.textBoxFiltroNombre.TabIndex = 1;
+            this.textBoxFiltroNombre.Size = new System.Drawing.Size(348, 23);
+            this.textBoxFiltroNombre.TabIndex = 0;
             // 
             // textBoxFiltroCodigo
             // 
-            this.textBoxFiltroCodigo.Location = new System.Drawing.Point(73, 24);
+            this.textBoxFiltroCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxFiltroCodigo.Location = new System.Drawing.Point(115, 64);
             this.textBoxFiltroCodigo.Name = "textBoxFiltroCodigo";
-            this.textBoxFiltroCodigo.Size = new System.Drawing.Size(174, 20);
-            this.textBoxFiltroCodigo.TabIndex = 1;
+            this.textBoxFiltroCodigo.Size = new System.Drawing.Size(348, 23);
+            this.textBoxFiltroCodigo.TabIndex = 2;
             // 
             // labelTituloArticulos
             // 
             this.labelTituloArticulos.AutoSize = true;
             this.labelTituloArticulos.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelTituloArticulos.Location = new System.Drawing.Point(6, 9);
+            this.labelTituloArticulos.Location = new System.Drawing.Point(9, 9);
             this.labelTituloArticulos.Name = "labelTituloArticulos";
             this.labelTituloArticulos.Size = new System.Drawing.Size(105, 13);
             this.labelTituloArticulos.TabIndex = 1;
@@ -320,9 +343,12 @@
             this.Controls.Add(this.panelContenido);
             this.Controls.Add(this.panelMenu);
             this.ForeColor = System.Drawing.SystemColors.Info;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Catálogo - Sistema de Administración";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);
             this.panelContenido.PerformLayout();
@@ -341,10 +367,8 @@
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.Label labelTituloArticulos;
         private System.Windows.Forms.GroupBox groupBoxFiltros;
-        private System.Windows.Forms.TextBox textBoxFiltroMarca;
         private System.Windows.Forms.TextBox textBoxFiltroNombre;
         private System.Windows.Forms.TextBox textBoxFiltroCodigo;
-        private System.Windows.Forms.TextBox textBoxFiltroCategoria;
         private System.Windows.Forms.TextBox textBoxFiltroDescripcion;
         private System.Windows.Forms.Button buttonBuscarArticulos;
         private System.Windows.Forms.Label labelFiltroCategoria;
@@ -356,6 +380,8 @@
         private System.Windows.Forms.Button buttonEliminarArt;
         private System.Windows.Forms.Button buttonNuevoArt;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
+        private System.Windows.Forms.ComboBox comboBoxCategoriaFiltro;
+        private System.Windows.Forms.ComboBox comboBoxMarcaFiltro;
     }
 }
 

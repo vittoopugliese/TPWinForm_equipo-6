@@ -12,15 +12,18 @@ namespace TPWinForm_equipo_6
 {
     public partial class frmPrincipal : Form
     {
-        private BaseDeDatos bd = new BaseDeDatos();
         private Articulo articuloSeleccionado = null;
         private ArticuloNegocio articuloNegocio;
+        private MarcaNegocio marcaNegocio;
+        private CategoriaNegocio categoriaNegocio;
 
         public frmPrincipal()
         {
             InitializeComponent();
 
             articuloNegocio = new ArticuloNegocio();
+            marcaNegocio = new MarcaNegocio();
+            categoriaNegocio = new CategoriaNegocio();
 
             CargarArticulos();
         }
@@ -104,11 +107,15 @@ namespace TPWinForm_equipo_6
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al eliminar el artículo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al eliminar el artículo", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            comboBoxMarcaFiltro.DataSource = marcaNegocio.Listar();
+            comboBoxCategoriaFiltro.DataSource = categoriaNegocio.Listar();
+        }
     }
 }
