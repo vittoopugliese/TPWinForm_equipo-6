@@ -29,8 +29,23 @@ namespace TPWinForm_equipo_6
         }
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            comboBoxMarcaFiltro.DataSource = marcaNegocio.Listar();
-            comboBoxCategoriaFiltro.DataSource = categoriaNegocio.Listar();
+            // faltaba agregar opcion para todas las marcas o todas las categorias
+
+            List<Marca> marcas = new List<Marca>();
+            marcas.Add(new Marca(0, "Todas las marcas"));
+            marcas.AddRange(marcaNegocio.Listar());
+            comboBoxMarcaFiltro.DataSource = marcas;
+            comboBoxMarcaFiltro.DisplayMember = "Descripcion";
+            comboBoxMarcaFiltro.ValueMember = "Id";
+
+            // si quisiera evitar hacer new List y pondria el negocio.Listar primero, el dropdown NO iniciaria en la opcion de "Todas ..."
+
+            List<Categoria> categorias = new List<Categoria>();
+            categorias.Add(new Categoria(0, "Todas las categorías"));
+            categorias.AddRange(categoriaNegocio.Listar());
+            comboBoxCategoriaFiltro.DataSource = categorias;
+            comboBoxCategoriaFiltro.DisplayMember = "Descripcion";
+            comboBoxCategoriaFiltro.ValueMember = "Id";
         }
 
         private void CargarArticulos()
@@ -121,15 +136,14 @@ namespace TPWinForm_equipo_6
         private void buttonBuscarArticulos_Click(object sender, EventArgs e)
         {
             // podria aislar el filtrado en funcion especifica pero prefiero dejarlo todo en el evento click del boton buscar
-            Marca marcaSeleccionada = (Marca)comboBoxMarcaFiltro.SelectedItem;
-            Categoria categoriaSeleccionada = (Categoria)comboBoxCategoriaFiltro.SelectedItem;
+            int idMarca = (int)comboBoxMarcaFiltro.SelectedValue;
+            int idCategoria = (int)comboBoxCategoriaFiltro.SelectedValue;
 
             dataGridViewArticulos.DataSource = articuloNegocio.Filtrar(
                 textBoxFiltroCodigo.Text,
                 textBoxFiltroNombre.Text,
                 textBoxFiltroDescripcion.Text,
-                marcaSeleccionada.Id,
-                categoriaSeleccionada.Id
+                idMarca, idCategoria
             );
         }
 

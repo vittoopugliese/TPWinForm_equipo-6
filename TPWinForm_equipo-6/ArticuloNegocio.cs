@@ -63,10 +63,11 @@ namespace TPWinForm_equipo_6
                 bool hayMarcaSeleccionada = idMarcaSeleccionada > 0; // mejorar condicion luego
                 bool hayCategoriaSeleccionada = idCategoriaSeleccionada > 0; // mejorar condicion luego
 
-                // si los valores estan rellenados en los campos de filtrado, se agregan a la query principal
-                if (hayCodigo) consulta += "AND A.Codigo LIKE @Codigo ";
-                if (hayNombre) consulta += "AND A.Nombre LIKE @Nombre ";
-                if (hayDescripcion) consulta += "AND A.Descripcion LIKE @Descripcion ";
+                // si los valores estan rellenados en los campos de filtrado, se agregan a la query principal,
+                // son UPPER para evitar confusiones con las mayusculas o minusculas
+                if (hayCodigo) consulta += "AND UPPER(A.Codigo) LIKE UPPER(@Codigo) ";
+                if (hayNombre) consulta += "AND UPPER(A.Nombre) LIKE UPPER(@Nombre) ";
+                if (hayDescripcion) consulta += "AND UPPER(A.Descripcion) LIKE UPPER(@Descripcion) ";
                 if (hayMarcaSeleccionada) consulta += "AND A.IdMarca = @IdMarca ";
                 if (hayCategoriaSeleccionada) consulta += "AND A.IdCategoria = @IdCategoria ";
 
@@ -90,8 +91,10 @@ namespace TPWinForm_equipo_6
                     articulo.Nombre = bd.Lector["Nombre"].ToString();
                     articulo.Descripcion = bd.Lector["Descripcion"].ToString();
                     articulo.Precio = Convert.ToDecimal(bd.Lector["Precio"]);
+
                     articulo.IdMarca = Convert.ToInt32(bd.Lector["IdMarca"]);
                     articulo.Marca = new Marca(Convert.ToInt32(bd.Lector["IdMarca"]), bd.Lector["Marca"]?.ToString() ?? string.Empty);
+
                     articulo.IdCategoria = Convert.ToInt32(bd.Lector["IdCategoria"]);
                     articulo.Categoria = new Categoria(Convert.ToInt32(bd.Lector["IdCategoria"]), bd.Lector["Categoria"]?.ToString() ?? string.Empty);
 

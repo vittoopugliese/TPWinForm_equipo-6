@@ -23,6 +23,7 @@ namespace TPWinForm_equipo_6
         private List<Imagen> imagenes;
         private ImagenNegocio imagenNegocio;
 
+        private Utilidades utilidades;
 
         public frmArticuloDetalle(Articulo articuloSeleccionado)
         {
@@ -35,6 +36,7 @@ namespace TPWinForm_equipo_6
             articuloNegocio = new ArticuloNegocio();
             categoriaNegocio = new CategoriaNegocio();
             marcaNegocio = new MarcaNegocio();
+            utilidades = new Utilidades();
 
             articulo = articuloSeleccionado;
 
@@ -72,6 +74,7 @@ namespace TPWinForm_equipo_6
             articuloNegocio = new ArticuloNegocio();
             categoriaNegocio = new CategoriaNegocio();
             marcaNegocio = new MarcaNegocio();
+            utilidades = new Utilidades();
 
             buttonEfectuarEdicionDetalle.Text = "Crear Nuevo";
 
@@ -110,7 +113,15 @@ namespace TPWinForm_equipo_6
 
         private void buttonEfectuarEdicionDetalle_Click(object sender, EventArgs e)
         {
-            // validar antes de entrar al try todas los posibles errores o faltas de completar algun campo
+            // si algun campo esta mal, retorno el mensaje explicandolo, haciendo que no se efectue la edicion y se tire el messagebox al mismo tiempo
+
+            if (utilidades.ValidarInput(string.IsNullOrEmpty(textBoxCodigoDetalle.Text), "Codigo no puede estar vacio...")) return;
+            if (utilidades.ValidarInput(string.IsNullOrEmpty(textBoxNombreDetalle.Text), "Nombre no puede estar vacio...")) return;
+            if (utilidades.ValidarInput(string.IsNullOrEmpty(textBoxDescripcionDetalle.Text), "Descripcion no puede estar vacio...")) return;
+            // para el precio, crea la variable pasada de string a int para luego pasar por funcion ValidadInput
+            decimal.TryParse(textBoxPrecioDetalle.Text, out decimal precio);
+            if (utilidades.ValidarInput(precio <= 0, "Precio no puede ser 0 o menor...")) return;
+
             try
             {
                 Articulo nuevoArticulo = new Articulo();

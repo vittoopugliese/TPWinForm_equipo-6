@@ -81,6 +81,7 @@
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="frmArticuloDetalle.resx">
       <DependentUpon>frmArticuloDetalle.cs</DependentUpon>
     </EmbeddedResource>

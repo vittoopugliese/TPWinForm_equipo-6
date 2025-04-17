@@ -40,6 +40,7 @@
             this.buttonEliminarArt = new System.Windows.Forms.Button();
             this.buttonNuevoArt = new System.Windows.Forms.Button();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
+            this.buttonEliminarFiltrado = new System.Windows.Forms.Button();
             this.comboBoxCategoriaFiltro = new System.Windows.Forms.ComboBox();
             this.comboBoxMarcaFiltro = new System.Windows.Forms.ComboBox();
             this.labelFiltroDescripcion = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
             this.textBoxFiltroCodigo = new System.Windows.Forms.TextBox();
             this.labelTituloArticulos = new System.Windows.Forms.Label();
-            this.buttonEliminarFiltrado = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
@@ -212,6 +212,17 @@
             this.groupBoxFiltros.TabStop = false;
             this.groupBoxFiltros.Text = "Filtros";
             // 
+            // buttonEliminarFiltrado
+            // 
+            this.buttonEliminarFiltrado.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonEliminarFiltrado.Location = new System.Drawing.Point(850, 100);
+            this.buttonEliminarFiltrado.Name = "buttonEliminarFiltrado";
+            this.buttonEliminarFiltrado.Size = new System.Drawing.Size(101, 23);
+            this.buttonEliminarFiltrado.TabIndex = 9;
+            this.buttonEliminarFiltrado.Text = "Eliminar Filtrado";
+            this.buttonEliminarFiltrado.UseVisualStyleBackColor = true;
+            this.buttonEliminarFiltrado.Click += new System.EventHandler(this.buttonEliminarFiltrado_Click);
+            // 
             // comboBoxCategoriaFiltro
             // 
             this.comboBoxCategoriaFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -314,7 +325,7 @@
             // textBoxFiltroNombre
             // 
             this.textBoxFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxFiltroNombre.Location = new System.Drawing.Point(115, 20);
+            this.textBoxFiltroNombre.Location = new System.Drawing.Point(115, 59);
             this.textBoxFiltroNombre.Name = "textBoxFiltroNombre";
             this.textBoxFiltroNombre.Size = new System.Drawing.Size(348, 23);
             this.textBoxFiltroNombre.TabIndex = 0;
@@ -322,7 +333,7 @@
             // textBoxFiltroCodigo
             // 
             this.textBoxFiltroCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxFiltroCodigo.Location = new System.Drawing.Point(115, 64);
+            this.textBoxFiltroCodigo.Location = new System.Drawing.Point(115, 20);
             this.textBoxFiltroCodigo.Name = "textBoxFiltroCodigo";
             this.textBoxFiltroCodigo.Size = new System.Drawing.Size(348, 23);
             this.textBoxFiltroCodigo.TabIndex = 2;
@@ -336,17 +347,6 @@
             this.labelTituloArticulos.Size = new System.Drawing.Size(105, 13);
             this.labelTituloArticulos.TabIndex = 1;
             this.labelTituloArticulos.Text = "Gestión De Artículos";
-            // 
-            // buttonEliminarFiltrado
-            // 
-            this.buttonEliminarFiltrado.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonEliminarFiltrado.Location = new System.Drawing.Point(850, 100);
-            this.buttonEliminarFiltrado.Name = "buttonEliminarFiltrado";
-            this.buttonEliminarFiltrado.Size = new System.Drawing.Size(101, 23);
-            this.buttonEliminarFiltrado.TabIndex = 9;
-            this.buttonEliminarFiltrado.Text = "Eliminar Filtrado";
-            this.buttonEliminarFiltrado.UseVisualStyleBackColor = true;
-            this.buttonEliminarFiltrado.Click += new System.EventHandler(this.buttonEliminarFiltrado_Click);
             // 
             // frmPrincipal
             // 
