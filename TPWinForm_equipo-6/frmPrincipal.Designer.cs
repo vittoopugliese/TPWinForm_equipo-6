@@ -52,6 +52,7 @@
             this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
             this.textBoxFiltroCodigo = new System.Windows.Forms.TextBox();
             this.labelTituloArticulos = new System.Windows.Forms.Label();
+            this.buttonEliminarFiltrado = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
@@ -191,6 +192,7 @@
             // groupBoxFiltros
             // 
             this.groupBoxFiltros.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBoxFiltros.Controls.Add(this.buttonEliminarFiltrado);
             this.groupBoxFiltros.Controls.Add(this.comboBoxCategoriaFiltro);
             this.groupBoxFiltros.Controls.Add(this.comboBoxMarcaFiltro);
             this.groupBoxFiltros.Controls.Add(this.labelFiltroDescripcion);
@@ -293,19 +295,20 @@
             // buttonBuscarArticulos
             // 
             this.buttonBuscarArticulos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBuscarArticulos.Location = new System.Drawing.Point(850, 100);
+            this.buttonBuscarArticulos.Location = new System.Drawing.Point(743, 100);
             this.buttonBuscarArticulos.Name = "buttonBuscarArticulos";
             this.buttonBuscarArticulos.Size = new System.Drawing.Size(101, 23);
             this.buttonBuscarArticulos.TabIndex = 5;
             this.buttonBuscarArticulos.Text = "Buscar!";
             this.buttonBuscarArticulos.UseVisualStyleBackColor = true;
+            this.buttonBuscarArticulos.Click += new System.EventHandler(this.buttonBuscarArticulos_Click);
             // 
             // textBoxFiltroDescripcion
             // 
             this.textBoxFiltroDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.textBoxFiltroDescripcion.Location = new System.Drawing.Point(115, 100);
             this.textBoxFiltroDescripcion.Name = "textBoxFiltroDescripcion";
-            this.textBoxFiltroDescripcion.Size = new System.Drawing.Size(726, 23);
+            this.textBoxFiltroDescripcion.Size = new System.Drawing.Size(622, 23);
             this.textBoxFiltroDescripcion.TabIndex = 4;
             // 
             // textBoxFiltroNombre
@@ -333,6 +336,17 @@
             this.labelTituloArticulos.Size = new System.Drawing.Size(105, 13);
             this.labelTituloArticulos.TabIndex = 1;
             this.labelTituloArticulos.Text = "Gestión De Artículos";
+            // 
+            // buttonEliminarFiltrado
+            // 
+            this.buttonEliminarFiltrado.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonEliminarFiltrado.Location = new System.Drawing.Point(850, 100);
+            this.buttonEliminarFiltrado.Name = "buttonEliminarFiltrado";
+            this.buttonEliminarFiltrado.Size = new System.Drawing.Size(101, 23);
+            this.buttonEliminarFiltrado.TabIndex = 9;
+            this.buttonEliminarFiltrado.Text = "Eliminar Filtrado";
+            this.buttonEliminarFiltrado.UseVisualStyleBackColor = true;
+            this.buttonEliminarFiltrado.Click += new System.EventHandler(this.buttonEliminarFiltrado_Click);
             // 
             // frmPrincipal
             // 
@@ -382,6 +396,7 @@
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
         private System.Windows.Forms.ComboBox comboBoxCategoriaFiltro;
         private System.Windows.Forms.ComboBox comboBoxMarcaFiltro;
+        private System.Windows.Forms.Button buttonEliminarFiltrado;
     }
 }
 

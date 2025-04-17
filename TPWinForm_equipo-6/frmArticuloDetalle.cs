@@ -49,14 +49,13 @@ namespace TPWinForm_equipo_6
 
             if (imagenes != null && imagenes.Count > 0)
             {
-                Console.WriteLine(imagenes[0].ImagenUrl);
                 try
                 {
                     pictureBoxImagenPrincipalDetalle.LoadAsync(imagenes[0].ImagenUrl);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("Error cargando imange: " + ex.Message);
                 }
             }
         }
@@ -78,7 +77,7 @@ namespace TPWinForm_equipo_6
 
             // al no poder agregar imagenes en el modal de creacion, tambien deshabilito los botones
 
-            textBoxNuevaImagenPorAgregar.Text = "Imagenes solo al editar :) perdon";
+            textBoxNuevaImagenPorAgregar.Text = "Imagenes solo al editar :)";
             textBoxNuevaImagenPorAgregar.Enabled = false;
             buttonImagenSiguiente.Enabled = false;
             buttonImagenAnterior.Enabled = false;

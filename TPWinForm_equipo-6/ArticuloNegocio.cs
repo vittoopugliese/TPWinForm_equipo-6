@@ -48,6 +48,69 @@ namespace TPWinForm_equipo_6
             return listaArticulos;
         }
 
+        public List<Articulo> Filtrar(string codigo, string nombre, string descripcion, int idMarcaSeleccionada, int idCategoriaSeleccionada)
+        {
+            List<Articulo> listaArticulos = new List<Articulo>();
+
+            try
+            {
+                // query principal
+                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdMarca, A.IdCategoria, M.Descripcion Marca, C.Descripcion Categoria FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id ";
+
+                bool hayCodigo = !string.IsNullOrEmpty(codigo);
+                bool hayNombre = !string.IsNullOrEmpty(nombre);
+                bool hayDescripcion = !string.IsNullOrEmpty(descripcion);
+                bool hayMarcaSeleccionada = idMarcaSeleccionada > 0; // mejorar condicion luego
+                bool hayCategoriaSeleccionada = idCategoriaSeleccionada > 0; // mejorar condicion luego
+
+                // si los valores estan rellenados en los campos de filtrado, se agregan a la query principal
+                if (hayCodigo) consulta += "AND A.Codigo LIKE @Codigo ";
+                if (hayNombre) consulta += "AND A.Nombre LIKE @Nombre ";
+                if (hayDescripcion) consulta += "AND A.Descripcion LIKE @Descripcion ";
+                if (hayMarcaSeleccionada) consulta += "AND A.IdMarca = @IdMarca ";
+                if (hayCategoriaSeleccionada) consulta += "AND A.IdCategoria = @IdCategoria ";
+
+                bd.setearConsulta(consulta);
+
+                // lo mismo con los parametros, uso %% para indicar que no tiene que ser el string completo
+                if (hayCodigo) bd.setearParametro("@Codigo", "%" + codigo + "%");
+                if (hayNombre) bd.setearParametro("@Nombre", "%" + nombre + "%");
+                if (hayDescripcion) bd.setearParametro("@Descripcion", "%" + descripcion + "%");
+                if (hayMarcaSeleccionada) bd.setearParametro("@IdMarca", idMarcaSeleccionada);
+                if (hayCategoriaSeleccionada) bd.setearParametro("@IdCategoria", idCategoriaSeleccionada);
+
+                bd.ejecutarLectura();
+
+                while (bd.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+
+                    articulo.Id = Convert.ToInt32(bd.Lector["Id"]);
+                    articulo.Codigo = bd.Lector["Codigo"].ToString();
+                    articulo.Nombre = bd.Lector["Nombre"].ToString();
+                    articulo.Descripcion = bd.Lector["Descripcion"].ToString();
+                    articulo.Precio = Convert.ToDecimal(bd.Lector["Precio"]);
+                    articulo.IdMarca = Convert.ToInt32(bd.Lector["IdMarca"]);
+                    articulo.Marca = new Marca(Convert.ToInt32(bd.Lector["IdMarca"]), bd.Lector["Marca"]?.ToString() ?? string.Empty);
+                    articulo.IdCategoria = Convert.ToInt32(bd.Lector["IdCategoria"]);
+                    articulo.Categoria = new Categoria(Convert.ToInt32(bd.Lector["IdCategoria"]), bd.Lector["Categoria"]?.ToString() ?? string.Empty);
+
+                    listaArticulos.Add(articulo);
+                }
+
+                return listaArticulos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar la búsqueda: " + ex.Message);
+                return new List<Articulo>();
+            }
+            finally
+            {
+                bd.cerrarConexion();
+            }
+        }
+
         public void CrearNuevoArticulo(Articulo nuevoArticulo)
         {
             try

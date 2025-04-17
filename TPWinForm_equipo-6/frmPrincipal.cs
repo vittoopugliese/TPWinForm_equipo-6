@@ -27,6 +27,11 @@ namespace TPWinForm_equipo_6
 
             CargarArticulos();
         }
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            comboBoxMarcaFiltro.DataSource = marcaNegocio.Listar();
+            comboBoxCategoriaFiltro.DataSource = categoriaNegocio.Listar();
+        }
 
         private void CargarArticulos()
         {
@@ -58,6 +63,7 @@ namespace TPWinForm_equipo_6
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
         }
+
         private void dataGridViewArticulos_SelectionChanged(object sender, EventArgs e)
         {
             articuloSeleccionado = (Articulo)dataGridViewArticulos.CurrentRow.DataBoundItem;
@@ -112,10 +118,28 @@ namespace TPWinForm_equipo_6
             }
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private void buttonBuscarArticulos_Click(object sender, EventArgs e)
         {
-            comboBoxMarcaFiltro.DataSource = marcaNegocio.Listar();
-            comboBoxCategoriaFiltro.DataSource = categoriaNegocio.Listar();
+            // podria aislar el filtrado en funcion especifica pero prefiero dejarlo todo en el evento click del boton buscar
+            Marca marcaSeleccionada = (Marca)comboBoxMarcaFiltro.SelectedItem;
+            Categoria categoriaSeleccionada = (Categoria)comboBoxCategoriaFiltro.SelectedItem;
+
+            dataGridViewArticulos.DataSource = articuloNegocio.Filtrar(
+                textBoxFiltroCodigo.Text,
+                textBoxFiltroNombre.Text,
+                textBoxFiltroDescripcion.Text,
+                marcaSeleccionada.Id,
+                categoriaSeleccionada.Id
+            );
         }
+
+        private void buttonEliminarFiltrado_Click(object sender, EventArgs e)
+        {
+            textBoxFiltroCodigo.Text = "";
+            textBoxFiltroNombre.Text = "";
+            textBoxFiltroDescripcion.Text = "";
+            CargarArticulos();
+        }
+
     }
 }
